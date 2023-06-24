@@ -12,7 +12,12 @@ const HebergementSchema = new mongoose.Schema({
   nbChambres: Number,
   nbSalleBains: Number,
   nbPersonneMax: Number,
-  localisation: String,
+   localisation: {
+    adresse: String,
+    ville: String,
+    pays: String,
+    codePostal: String,
+  },
   prix: Number,
   user: mongoose.Schema.Types.ObjectId,
   reservations: [mongoose.Schema.Types.ObjectId],
