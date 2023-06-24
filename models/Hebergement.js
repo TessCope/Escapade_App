@@ -19,8 +19,8 @@ const HebergementSchema = new mongoose.Schema({
     codePostal: String,
   },
   prix: Number,
-  user: mongoose.Schema.Types.ObjectId,
-  reservations: [mongoose.Schema.Types.ObjectId],
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  reservations: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Reservation' }],
   animalAccepte: Boolean
 });
 
