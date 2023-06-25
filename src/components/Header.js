@@ -173,10 +173,10 @@ function Header() {
     } else if (!passwordRegex.test(motDePasse)) {
       errors.motDePasse =
         "Il semble que le mot de passe ne soit pas dans un format valide. Veuillez réessayer.";
-      setConnexionFormValues({
-        email: email,
-        motDePasse: "",
-      });
+      // setConnexionFormValues({
+      //   email: email,
+      //   motDePasse: "",
+      // });
     }
 
     return errors;

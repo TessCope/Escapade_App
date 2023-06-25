@@ -4,7 +4,7 @@ const UserSchema = new mongoose.Schema({
   nom: String,
   prenom: String,
   email: String,
-  password: String,
+  motDePasse: String,
   favoris: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Hebergement' }],
   reservations: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Reservation' }],
   hebergements: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Hebergement' }]

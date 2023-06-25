@@ -6,20 +6,21 @@ exports.signUp = async (req, res) => {
 
     // Check si identifiant deja utilise
     let user = await User.findOne({ email });
+    console.log(req.body);
 
     if (user) {
         return res.status(400).json({ message: 'Identifiant déjà utilisé' });
     }
 
     // Encryptage
-    const hashedPassword = await argon2.hash(motDePasse);
+    const hashedMotDePasse = await argon2.hash(motDePasse);
 
     // Create User
     user = new User({
         prenom,
         nom,
         email,
-        motDePasse: hashedPassword
+        motDePasse: hashedMotDePasse
     });
 
     await user.save();
@@ -29,6 +30,10 @@ exports.signUp = async (req, res) => {
 exports.signIn = async (req, res) => {
     const { email, motDePasse } = req.body;
 
+    console.log('Received email:', email);  // Debug line
+    console.log('Received motDePasse:', motDePasse);  // Debug line
+
+
     // Cherche lidentifiant dans la DB (email)
     const user = await User.findOne({ email });
 
@@ -36,8 +41,8 @@ exports.signIn = async (req, res) => {
         return res.status(401).json({ error: 'Cet identifiant est inexistant ' });
     }
 
-    // Vérification du password/encryption sur la DB
-    const isMatch = await argon2.verify(user.password, motDePasse);
+    // Vérification du motDePasse/encryption sur la DB
+    const isMatch = await argon2.verify(user.motDePasse, motDePasse);
 
     if (!isMatch) {
         return res.status(401).json({ error: 'Mot de passe invalide' });
