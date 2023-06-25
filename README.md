@@ -4,9 +4,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
-
-### `npm start`
+Pour tester l'app il faudra 2 terminaux differents
+Pour le serveur : 'nodemon server.js'
+pour react : 'npm run start'
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
