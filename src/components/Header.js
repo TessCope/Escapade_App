@@ -194,19 +194,32 @@ function Header() {
     setIsConnexionFormValid(isValid);
 
     if (isValid) {
+      // Prepare the form data
+      const loginData = {
+        email: connexionFormValues.email,
+        motDePasse: connexionFormValues.motDePasse,
+      };
+
       // Soumission du formulaire de connexion
-      // Effectuer ici les actions nécessaires (par exemple, l'appel à une API)
-      console.log("Formulaire de connexion soumis avec succès");
-      // Réinitialisation des valeurs du formulaire de connexion
-      setConnexionFormValues({
-        loginEmail: "",
-        loginPassword: "",
-      });
-      ///////////////////////////////////////////////////////
-      /// changer ça quand on aura la réponse du serveur
-      // Fermeture du Modal de connexion
-      setIsLoginPopupOpen(false);
+      axios
+        .post("/api/users/signIn", loginData)
+        .then((response) => {
+          // Traitement de la réponse du serveur en cas de succès
+          console.log("Réponse du serveur :", response.data);
+          // Réinitialisation des valeurs du formulaire de connexion
+          setConnexionFormValues({
+            email: "",
+            motDePasse: "",
+          });
+          // Fermeture du Modal de connexion
+          setIsLoginPopupOpen(false);
+        })
+        .catch((error) => {
+          // Traitement de l'erreur en cas d'échec de la soumission
+          console.error("Erreur lors de la soumission du formulaire :", error);
+        });
     }
+
   };
 
   const validateEscapadeForm = () => {

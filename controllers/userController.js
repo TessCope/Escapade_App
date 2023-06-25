@@ -3,7 +3,7 @@ const argon2 = require('argon2');
 
 exports.signUp = async (req, res) => {
     const { email, motDePasse, prenom, nom } = req.body;
-    
+
     // Check si identifiant deja utilise
     let user = await User.findOne({ email });
 
@@ -19,7 +19,7 @@ exports.signUp = async (req, res) => {
         prenom,
         nom,
         email,
-        password: hashedPassword
+        motDePasse: hashedPassword
     });
 
     await user.save();
@@ -27,17 +27,17 @@ exports.signUp = async (req, res) => {
 };
 
 exports.signIn = async (req, res) => {
-    const { email, password } = req.body;
+    const { email, motDePasse } = req.body;
 
     // Cherche lidentifiant dans la DB (email)
     const user = await User.findOne({ email });
 
     if (!user) {
-        return res.status(401).json({ error: 'Cet identifiant est inexistant '});
+        return res.status(401).json({ error: 'Cet identifiant est inexistant ' });
     }
 
     // Vérification du password/encryption sur la DB
-    const isMatch = await argon2.verify(user.password, password);
+    const isMatch = await argon2.verify(user.password, motDePasse);
 
     if (!isMatch) {
         return res.status(401).json({ error: 'Mot de passe invalide' });
