@@ -136,7 +136,7 @@ function Header() {
       setIsPopupOpen(false); //// changer ça quand on aura la réponse du serveur
       // Soumission du formulaire
       axios
-        .post("/url-de-soumission", formValues)
+        .post("/api/users/signup", formValues)
         .then((response) => {
           // Traitement de la réponse du serveur en cas de succès
           console.log("Réponse du serveur :", response.data);
@@ -426,9 +426,8 @@ function Header() {
             <input
               type="text"
               id="prenom"
-              className={`form-control ${
-                formErrors.prenom ? "is-invalid" : ""
-              }`}
+              className={`form-control ${formErrors.prenom ? "is-invalid" : ""
+                }`}
               placeholder="Entrez votre prénom"
               value={formValues.prenom}
               onChange={(e) =>
@@ -480,9 +479,8 @@ function Header() {
             <input
               type="password"
               id="motDePasse"
-              className={`form-control ${
-                formErrors.motDePasse ? "is-invalid" : ""
-              }`}
+              className={`form-control ${formErrors.motDePasse ? "is-invalid" : ""
+                }`}
               placeholder="Entrez votre mot de passe"
               value={formValues.motDePasse}
               onChange={(e) =>
@@ -499,9 +497,8 @@ function Header() {
             <input
               type="password"
               id="repete_passe"
-              className={`form-control ${
-                formErrors.repete_passe ? "is-invalid" : ""
-              }`}
+              className={`form-control ${formErrors.repete_passe ? "is-invalid" : ""
+                }`}
               placeholder="Répétez votre mot de passe"
               value={formValues.repete_passe}
               onChange={(e) =>
@@ -543,9 +540,8 @@ function Header() {
             <input
               type="email"
               id="loginEmail"
-              className={`form-control ${
-                connexionFormErrors.email ? "is-invalid" : ""
-              }`}
+              className={`form-control ${connexionFormErrors.email ? "is-invalid" : ""
+                }`}
               placeholder="Entrez votre email"
               value={connexionFormValues.email}
               onChange={(e) =>
@@ -567,9 +563,8 @@ function Header() {
             <input
               type="password"
               id="loginPassword"
-              className={`form-control ${
-                connexionFormErrors.motDePasse ? "is-invalid" : ""
-              }`}
+              className={`form-control ${connexionFormErrors.motDePasse ? "is-invalid" : ""
+                }`}
               placeholder="Entrez votre mot de passe"
               value={connexionFormValues.motDePasse}
               onChange={(e) =>
@@ -625,9 +620,8 @@ function Header() {
             <input
               type="text"
               id="titre"
-              className={`form-control  mb-2 ${
-                escapadeFormErrors.titre ? "is-invalid" : ""
-              }`}
+              className={`form-control  mb-2 ${escapadeFormErrors.titre ? "is-invalid" : ""
+                }`}
               placeholder="Entrez le titre de votre escapade"
               value={escapadeFormValues.titre}
               onChange={(e) =>
@@ -646,9 +640,8 @@ function Header() {
             <label htmlFor="description">Description</label>
             <textarea
               id="description"
-              className={`form-control mb-2 ${
-                escapadeFormErrors.description ? "is-invalid" : ""
-              }`}
+              className={`form-control mb-2 ${escapadeFormErrors.description ? "is-invalid" : ""
+                }`}
               placeholder="Entrez la description de votre escapade"
               value={escapadeFormValues.description}
               onChange={(e) =>
@@ -680,9 +673,8 @@ function Header() {
             <input
               type="text"
               id="adresse"
-              className={`form-control mb-2 ${
-                escapadeFormErrors.adresse ? "is-invalid" : ""
-              }`}
+              className={`form-control mb-2 ${escapadeFormErrors.adresse ? "is-invalid" : ""
+                }`}
               placeholder="Entrez l'adresse de votre escapade"
               value={escapadeFormValues.adresse}
               onChange={(e) =>
@@ -705,9 +697,8 @@ function Header() {
             <input
               type="text"
               id="ville"
-              className={`form-control mb-2 ${
-                escapadeFormErrors.ville ? "is-invalid" : ""
-              }`}
+              className={`form-control mb-2 ${escapadeFormErrors.ville ? "is-invalid" : ""
+                }`}
               placeholder="Entrez l'adresse de votre escapade"
               value={escapadeFormValues.ville}
               onChange={(e) =>
@@ -728,9 +719,8 @@ function Header() {
             <input
               type="text"
               id="codepostal"
-              className={`form-control mb-2 ${
-                escapadeFormErrors.codepostal ? "is-invalid" : ""
-              }`}
+              className={`form-control mb-2 ${escapadeFormErrors.codepostal ? "is-invalid" : ""
+                }`}
               placeholder="Entrez l'adresse de votre escapade"
               value={escapadeFormValues.codepostal}
               onChange={(e) =>
@@ -753,9 +743,8 @@ function Header() {
             <input
               type="text"
               id="pays"
-              className={`form-control mb-2 ${
-                escapadeFormErrors.pays ? "is-invalid" : ""
-              }`}
+              className={`form-control mb-2 ${escapadeFormErrors.pays ? "is-invalid" : ""
+                }`}
               placeholder="Entrez l'adresse de votre escapade"
               value={escapadeFormValues.pays}
               onChange={(e) =>
@@ -776,9 +765,8 @@ function Header() {
             <input
               type="number"
               id="nbChambres"
-              className={`form-control mb-2 ${
-                escapadeFormErrors.nbChambres ? "is-invalid" : ""
-              }`}
+              className={`form-control mb-2 ${escapadeFormErrors.nbChambres ? "is-invalid" : ""
+                }`}
               placeholder="Entrez l'adresse de votre escapade"
               value={escapadeFormValues.nbChambres}
               onChange={(e) =>
@@ -801,9 +789,8 @@ function Header() {
             <input
               type="number"
               id="nbSallesDeBain"
-              className={`form-control mb-2 ${
-                escapadeFormErrors.nbSallesDeBain ? "is-invalid" : ""
-              }`}
+              className={`form-control mb-2 ${escapadeFormErrors.nbSallesDeBain ? "is-invalid" : ""
+                }`}
               placeholder="Entrez l'adresse de votre escapade"
               value={escapadeFormValues.nbSallesDeBain}
               onChange={(e) =>
@@ -826,9 +813,8 @@ function Header() {
             <input
               type="number"
               id="nbPersonnesMax"
-              className={`form-control mb-2 ${
-                escapadeFormErrors.nbPersonnesMax ? "is-invalid" : ""
-              }`}
+              className={`form-control mb-2 ${escapadeFormErrors.nbPersonnesMax ? "is-invalid" : ""
+                }`}
               placeholder="Entrez l'adresse de votre escapade"
               value={escapadeFormValues.nbPersonnesMax}
               onChange={(e) =>
@@ -865,9 +851,8 @@ function Header() {
               type="file"
               id="photos
 "
-              className={`form-control mb-2 ${
-                escapadeFormErrors.photos ? "is-invalid" : ""
-              }`}
+              className={`form-control mb-2 ${escapadeFormErrors.photos ? "is-invalid" : ""
+                }`}
               placeholder="Entrez l'adresse de votre escapade"
               value={escapadeFormValues.photos}
               onChange={(e) =>
@@ -891,9 +876,8 @@ function Header() {
             <input
               type="number"
               id="prix"
-              className={`form-control mb-2 ${
-                escapadeFormErrors.prix ? "is-invalid" : ""
-              }`}
+              className={`form-control mb-2 ${escapadeFormErrors.prix ? "is-invalid" : ""
+                }`}
               placeholder="Entrez l'adresse de votre escapade"
               value={escapadeFormValues.prix}
               onChange={(e) =>

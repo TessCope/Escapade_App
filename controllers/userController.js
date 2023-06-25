@@ -1,8 +1,8 @@
 const User = require('../models/User');
 const argon2 = require('argon2');
 
-exports.inscription = async (req, res) => {
-    const { email, password, prenom, nom } = req.body;
+exports.signUp = async (req, res) => {
+    const { email, motDePasse, prenom, nom } = req.body;
     
     // Check si identifiant deja utilise
     let user = await User.findOne({ email });
@@ -12,7 +12,7 @@ exports.inscription = async (req, res) => {
     }
 
     // Encryptage
-    const hashedPassword = await argon2.hash(password);
+    const hashedPassword = await argon2.hash(motDePasse);
 
     // Create User
     user = new User({

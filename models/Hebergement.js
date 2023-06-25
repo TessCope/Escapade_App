@@ -18,6 +18,7 @@ const HebergementSchema = new mongoose.Schema({
     pays: String,
     codePostal: String,
   },
+  date_bloque: [],
   prix: Number,
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   reservations: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Reservation' }],

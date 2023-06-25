@@ -1,13 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const userRoutes = require('./routes/userRoutes');
-
+const cors = require('cors');
 const hebergementRoutes = require('./routes/hebergementRoutes');
 
 const app = express();
-const port = 3000;
-
+const port = 5000;
 app.use(express.json());
+app.use(cors());
 
 // Connexion à la base de données MongoDB avec Mongoose
 mongoose
